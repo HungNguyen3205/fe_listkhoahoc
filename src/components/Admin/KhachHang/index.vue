@@ -1,74 +1,104 @@
 <template>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mt-2">Danh Sách Khách Hàng</h5>
+  <div class="col-lg-12">
+    <div class="card shadow-sm border-0">
+      <!-- Header -->
+      <div class="card-header bg-primary text-white d-flex align-items-center">
+        <i class="fa-solid fa-users me-2"></i>
+        <h5 class="mb-0">Danh Sách Khách Hàng</h5>
+      </div>
 
-                </div>
-                <div class="card-body">
-                    <div class="input-group mt-3 w-100">
-                        <input v-on:keyup.enter="timKiem()" v-model="search.noi_dung" type="text"
-                            class="form-control search-control border border-1 border-secondary"
-                            placeholder="Search...">
-                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
-                                class="bx bx-search"></i></span>
-                        <button v-on:click="timKiem()" class="btn btn-outline-secondary" type="button">Tìm
-                            Kiếm</button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered mb-0 mt-2">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>#</th>
-                                    <th>Họ Và Tên</th>
-                                    <th>Email</th>
-                                    <th>Số Điện Thoại</th>
-                                    <th>Ngày Sinh</th>
-                                    <th>Trạng Thái</th>
-                                    <th>Kích Hoạt</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <template v-for="(v, k) in list" :key="k">
-                                    <tr class="align-middle">
-                                        <th class="text-center">{{ k + 1 }}</th>
-                                        <td>{{ v.ho_va_ten }}</td>
-                                        <td>{{ v.email }}</td>
-                                        <td class="text-center">{{ v.so_dien_thoai }}</td>
-                                        <td class="text-center text-nowrap">{{ v.ngay_sinh }}</td>
-                                        <td class="align-middle text-center">
-                                            <template v-if="v.is_block == 0">
-                                                <button v-on:click="doiTrangThai(v)" class="btn btn-success">Hoạt
-                                                    Động</button>
-                                            </template>
-                                            <template v-else>
-                                                <button v-on:click="doiTrangThai(v)" class="btn btn-danger">Đã
-                                                    Khóa</button>
-                                            </template>
-                                        </td>
-                                        <td class="text-center">
-                                            <button class="btn btn-primary me-1">
-                                                Đã Kích Hoạt
-                                            </button>
-                                        </td>
-                                        <td class="text-center d-flex">
-                                            <button v-on:click="Object.assign(edit, v)" class="btn btn-primary me-1"
-                                                data-bs-toggle="modal" data-bs-target="#capNhatModal">Cập
-                                                Nhật</button>
-                                            <button v-on:click="Object.assign(del, v)" class="btn btn-danger"
-                                                data-bs-toggle="modal" data-bs-target="#xoaModal">Xóa</button>
-                                        </td>
-                                    </tr>
-                                </template>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+      <!-- Body -->
+      <div class="card-body">
+        <!-- Search -->
+        <div class="input-group mb-3 shadow-sm">
+          <span class="input-group-text bg-light"><i class="bx bx-search"></i></span>
+          <input
+            v-on:keyup.enter="timKiem()"
+            v-model="search.noi_dung"
+            type="text"
+            class="form-control"
+            placeholder="Tìm kiếm khách hàng..."
+          />
+          <button v-on:click="timKiem()" class="btn btn-outline-primary">
+            <i class="fa-solid fa-magnifying-glass me-1"></i> Tìm Kiếm
+          </button>
         </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-hover table-striped align-middle text-center">
+            <thead class="table-primary">
+              <tr>
+                <th>#</th>
+                <th>Họ Và Tên</th>
+                <th>Email</th>
+                <th>Số Điện Thoại</th>
+                <th>Ngày Sinh</th>
+                <th>Trạng Thái</th>
+                <th>Kích Hoạt</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="(v, k) in list" :key="k">
+                <tr>
+                  <td>{{ k + 1 }}</td>
+                  <td class="fw-semibold text-start">
+                    <i class="fa-solid fa-user text-primary me-2"></i>{{ v.ho_va_ten }}
+                  </td>
+                  <td>{{ v.email }}</td>
+                  <td>{{ v.so_dien_thoai }}</td>
+                  <td>{{ v.ngay_sinh }}</td>
+                  <td>
+                    <button
+                      v-if="v.is_block == 0"
+                      v-on:click="doiTrangThai(v)"
+                      class="btn btn-success btn-sm px-3"
+                    >
+                      <i class="fa-solid fa-check-circle me-1"></i> Hoạt Động
+                    </button>
+                    <button
+                      v-else
+                      v-on:click="doiTrangThai(v)"
+                      class="btn btn-danger btn-sm px-3"
+                    >
+                      <i class="fa-solid fa-lock me-1"></i> Đã Khóa
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-primary btn-sm px-3">
+                      <i class="fa-solid fa-bolt me-1"></i> Đã Kích Hoạt
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      v-on:click="Object.assign(edit, v)"
+                      class="btn btn-warning btn-sm me-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#capNhatModal"
+                    >
+                      <i class="fa-solid fa-pen-to-square me-1"></i> Cập Nhật
+                    </button>
+                    <button
+                      v-on:click="Object.assign(del, v)"
+                      class="btn btn-danger btn-sm"
+                      data-bs-toggle="modal"
+                      data-bs-target="#xoaModal"
+                    >
+                      <i class="fa-solid fa-trash me-1"></i> Xóa
+                    </button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
     <!-- Modal lịch sử -->
   
     <div class="modal fade" id="capNhatModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
