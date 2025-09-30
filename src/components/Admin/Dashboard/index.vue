@@ -1,145 +1,134 @@
-<template >
-    <div class="comtainer">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-            <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-info">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Bài học</p>
-                                <h4 class="my-1 text-info">205</h4>
-                                <p class="mb-0 font-13">+2.5% so với tuần trước</p>
-                            </div>
-                            <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i
-                                    class="bx bxs-cart"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<template>
+  <div class="container py-4">
+    <!-- Row thống kê -->
+    <div class="row g-4 mb-4">
+      <!-- Bài học -->
+      <div class="col-md-3">
+        <div class="card rounded-4 shadow-lg border-0 bg-primary bg-gradient text-white h-100 transition hover-transform">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <p class="mb-1 text-white-50">Bài học</p>
+              <h3 class="fw-bold">205</h3>
+              <small>+2.5% so với tuần trước</small>
             </div>
-            <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-danger">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Lịch sử giao dịch</p>
-                                <h4 class="my-1 text-danger">25,245</h4>
-                                <p class="mb-0 font-13">+5.4% so với tuần trước</p>
-                            </div>
-                            <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i
-                                    class="bx bxs-wallet"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-success">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Trắc nghiệm</p>
-                                <h4 class="my-1 text-success">56.6%</h4>
-                                <p class="mb-0 font-13">-4.5% so với tuần trước</p>
-                            </div>
-                            <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
-                                    class="bx bxs-bar-chart-alt-2"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-warning">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <p class="mb-0 text-secondary">Khách hàng</p>
-                                <h4 class="my-1 text-warning">8.4K</h4>
-                                <p class="mb-0 font-13">+8.4% so với tuần trước</p>
-                            </div>
-                            <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i
-                                    class="bx bxs-group"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <i class="bx bxs-book fs-1"></i>
+          </div>
         </div>
-      
-        <div class="row">
-            <div class="card radius-10">
-						<div class="card-header bg-transparent">
-							<div class="d-flex align-items-center">
-								<div >
-									<h3 class="mb-0">Tổng Quan </h3>
-								</div>
-								<div class="dropdown ms-auto">
-									<a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class="bx bx-dots-horizontal-rounded font-22 text-option"></i>
-									</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="javascript:;">Theo tuần</a>
-										</li>
-										<li><a class="dropdown-item" href="javascript:;">Theo tháng</a>
-										</li>
-                                        <li><a class="dropdown-item" href="javascript:;">Theo Năm</a>
-										</li>
-										
-									</ul>
-								</div>
-							</div>
-						   </div>
-						 <div class="card-body">
-								<div id="dashboard-map" style="height: 250px"></div>
-								<hr>
-								<div class="mb-4">
-                                    <p class="mb-2"><i class="fa-solid fa-money-check-dollar"></i> Lịch sử giao dịch <span class="float-end">50%</span></p>
-									<div class="progress" style="height: 5px;">
-										<div class="progress-bar bg-gradient-bloody" role="progressbar" style="width: 50%"></div>
-									</div>
-								</div>
-								
-								<div class="mb-4">
-								 <p class="mb-2"><i class="fa-solid fa-newspaper"></i> Bài viết <span class="float-end">65%</span></p>
-								 <div class="progress" style="height: 5px;">
-									 <div class="progress-bar bg-gradient-scooter" role="progressbar" style="width: 65%"></div>
-								 </div>
-								</div>
-		   
-								<div class="mb-4">
-								 <p class="mb-2"><i class="fa-solid fa-person-chalkboard"></i> Bài học <span class="float-end">85%</span></p>
-								 <div class="progress" style="height: 5px;">
-									 <div class="progress-bar bg-gradient-blooker" role="progressbar" style="width: 85%"></div>
-								   </div>
-								</div>
-		   
-								<div class="mb-4">
-								 <p class="mb-2"><i class="fa-solid fa-circle-check"></i>Trắc nghiệm <span class="float-end">75%</span></p>
-								 <div class="progress" style="height: 5px;">
-									 <div class="progress-bar bg-gradient-quepal" role="progressbar" style="width: 75%"></div>
-								   </div>
-								</div>
+      </div>
 
-								<div class="mb-4">
-								  <p class="mb-2"><i class="fa-solid fa-users-rectangle"></i> Khách hàng <span class="float-end">45%</span></p>
-								  <div class="progress" style="height: 5px;">
-									 <div class="progress-bar bg-gradient-cosmic" role="progressbar" style="width: 55%"></div>
-								  </div>
-								</div>
-
-                                <div class="mb-0">
-								  <p class="mb-2"><i class="fa-regular fa-clipboard"></i> Loại khóa học <span class="float-end">5%</span></p>
-								  <div class="progress" style="height: 5px;">
-									 <div class="progress-bar bg-gradient-bloody" role="progressbar" style="width: 95%"></div>
-								  </div>
-								</div>
-						 </div>
-					   </div>
+      <!-- Lịch sử giao dịch -->
+      <div class="col-md-3">
+        <div class="card rounded-4 shadow-lg border-0 bg-danger bg-gradient text-white h-100 transition hover-transform">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <p class="mb-1 text-white-50">Lịch sử GD</p>
+              <h3 class="fw-bold">25,245</h3>
+              <small>+5.4% so với tuần trước</small>
+            </div>
+            <i class="bx bxs-wallet fs-1"></i>
+          </div>
         </div>
+      </div>
+
+      <!-- Trắc nghiệm -->
+      <div class="col-md-3">
+        <div class="card rounded-4 shadow-lg border-0 bg-success bg-gradient text-white h-100 transition hover-transform">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <p class="mb-1 text-white-50">Trắc nghiệm</p>
+              <h3 class="fw-bold">56.6%</h3>
+              <small>-4.5% so với tuần trước</small>
+            </div>
+            <i class="bx bxs-bar-chart-alt-2 fs-1"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khách hàng -->
+      <div class="col-md-3">
+        <div class="card rounded-4 shadow-lg border-0 bg-warning bg-gradient text-white h-100 transition hover-transform">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <p class="mb-1 text-dark">Khách hàng</p>
+              <h3 class="fw-bold">8.4K</h3>
+              <small class="text-dark">+8.4% so với tuần trước</small>
+            </div>
+            <i class="bx bxs-group fs-1"></i>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Tổng quan -->
+    <div class="card rounded-4 shadow-lg border-0">
+      <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+        <h4 class="fw-bold mb-0">Tổng Quan</h4>
+        <div class="dropdown">
+          <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            Lọc
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Theo tuần</a></li>
+            <li><a class="dropdown-item" href="#">Theo tháng</a></li>
+            <li><a class="dropdown-item" href="#">Theo năm</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Progress items -->
+        <div class="mb-3">
+          <p class="mb-1"><i class="fa-solid fa-money-check-dollar"></i> Lịch sử GD <span class="float-end">50%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-danger" style="width: 50%"></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <p class="mb-1"><i class="fa-solid fa-newspaper"></i> Bài viết <span class="float-end">65%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-info" style="width: 65%"></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <p class="mb-1"><i class="fa-solid fa-person-chalkboard"></i> Bài học <span class="float-end">85%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-primary" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <p class="mb-1"><i class="fa-solid fa-circle-check"></i> Trắc nghiệm <span class="float-end">75%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-success" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <p class="mb-1"><i class="fa-solid fa-users-rectangle"></i> Khách hàng <span class="float-end">45%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-warning" style="width: 45%"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="mb-1"><i class="fa-regular fa-clipboard"></i> Loại khóa học <span class="float-end">95%</span></p>
+          <div class="progress" style="height: 6px;">
+            <div class="progress-bar bg-dark" style="width: 95%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
 <script>
 export default {
 }
 </script>
-<style></style>
+<style>
+.hover-transform:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease-in-out;
+}
+</style>

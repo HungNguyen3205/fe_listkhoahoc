@@ -342,7 +342,7 @@ export default {
         },
         loadData() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/bai-hoc/data", {
+            .get("http://127.0.0.1:8000/api/admin/bai-hoc/data", {
                     headers : {
                         Authorization: 'Bearer ' + localStorage.getItem("key_admin")
                     }
@@ -351,6 +351,8 @@ export default {
                     this.list = res.data.data;
                 })
         },
+
+
         loadDataLKH() {
             axios
                 .get("http://127.0.0.1:8000/api/admin/loai-khoa-hoc/data", {

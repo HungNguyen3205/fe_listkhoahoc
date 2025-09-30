@@ -94,4 +94,35 @@ export default {
 
 }
 </script>
-<style></style>
+<style scoped>
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #fff;
+  border-right: 1px solid #eee;
+}
+
+.sidebar-header {
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-menu .nav-link {
+  padding: 12px 20px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.sidebar-menu .nav-link:hover {
+  background: #f1f5ff;
+  color: #0d6efd;
+}
+
+.router-link-active {
+  background: #e7f1ff;
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+</style>

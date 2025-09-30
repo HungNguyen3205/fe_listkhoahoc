@@ -55,16 +55,38 @@ export default {
         formatVND(number) {
             return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number);
         },
-        loadDanhSachKhoaHoc() {
-            axios
-                .get("http://127.0.0.1:8000/api/loai-khoa-hoc/danh-sach-khoa-hoc", {
-                    headers: {
-                        Authorization: 'Bearer ' + localStorage.getItem("key_khach_hang")
-                    }
-                })
-                .then((res) => {
-                    this.list = res.data.data
-                });
+      //  loadDanhSachKhoaHoc() {
+        //    axios
+          //      .get("http://127.0.0.1:8000/api/loai-khoa-hoc/danh-sach-khoa-hoc", {
+            //        headers: {
+              //          Authorization: 'Bearer ' + localStorage.getItem("key_khach_hang")
+                //    }
+           //     })
+            //    .then((res) => {
+             //       this.list = res.data.data
+              //  });
+      //  }
+        
+
+      loadDanhSachKhoaHoc() {
+            // Kiểm tra nếu có dữ liệu trong localStorage
+            const cachedData = localStorage.getItem('danhSachKhoaHoc');
+            if (cachedData) {
+                this.list = JSON.parse(cachedData);
+            } else {
+                // Nếu không, gọi API để lấy dữ liệu
+                axios
+                    .get("http://127.0.0.1:8000/api/loai-khoa-hoc/danh-sach-khoa-hoc", {
+                        headers: {
+                            Authorization: 'Bearer ' + localStorage.getItem("key_khach_hang")
+                        }
+                    })
+                    .then((res) => {
+                        this.list = res.data.data;
+                        // Lưu dữ liệu vào localStorage
+                        localStorage.setItem('danhSachKhoaHoc', JSON.stringify(this.list));
+                    });
+            }
         }
     },
 }

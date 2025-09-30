@@ -185,7 +185,16 @@ export default {
 
     },
     mounted() {
-        this.loadData();
+    //    this.loadData();
+
+   // Kiểm tra dữ liệu cache từ sessionStorage
+        const cachedData = sessionStorage.getItem('nhanVienData');
+        if (cachedData) {
+            this.list = JSON.parse(cachedData);  // Lấy dữ liệu từ sessionStorage nếu có
+        } else {
+            this.loadData();  // Nếu không có dữ liệu trong sessionStorage, gọi API để lấy dữ liệu
+        }
+
     },
     methods: {
         timKiem() {

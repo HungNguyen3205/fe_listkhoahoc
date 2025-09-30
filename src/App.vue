@@ -1,12 +1,20 @@
 <template>
   <component :is="layout">
-      <router-view></router-view>
+    <router-view />
   </component>
 </template>
 
 <script>
-const default_layout = "default";
+import AdminLayout from "./layout/components/AdminLayout.vue";
+import ClientLayout from "./layout/components/ClientLayout.vue";
+
+const default_layout = "client";
+
 export default {
+  components: {
+    "admin-layout": AdminLayout,
+    "client-layout": ClientLayout,
+  },
   computed: {
     layout() {
       return (this.$route.meta.layout || default_layout) + "-layout";
@@ -14,5 +22,3 @@ export default {
   },
 };
 </script>
-<style>
-</style>

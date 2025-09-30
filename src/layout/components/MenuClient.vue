@@ -1,54 +1,37 @@
 <template>
-	<div class="nav-container primary-menu">
-		<div class="mobile-topbar-header">
-			<div>
-				<img src="../../assets/images/logo_cua_du_an.png" class="logo-icon" alt="logo icon">
+	<div class="bg-white border-bottom">
+		<nav class="navbar navbar-expand-xl container">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clientMainNav" aria-controls="clientMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+			<div class="collapse navbar-collapse" id="clientMainNav">
+				<ul class="navbar-nav me-auto mb-2 mb-xl-0 gap-1">
+					<li class="nav-item">
+						<router-link to="/" class="nav-link d-flex align-items-center">
+							<i class='bx bx-home-circle me-2'></i>
+							<span>Trang chủ</span>
+						</router-link>
+					</li>
+					<li class="nav-item">
+						<router-link to="/bai-viet" class="nav-link d-flex align-items-center">
+							<i class="fa-solid fa-newspaper me-2"></i>
+							<span>Bài viết</span>
+						</router-link>
+					</li>
+					<li class="nav-item">
+						<router-link to="/trac-nghiem" class="nav-link d-flex align-items-center">
+							<i class="fa-solid fa-list-check me-2"></i>
+							<span>Trắc nghiệm</span>
+						</router-link>
+					</li>
+					<li class="nav-item">
+						<router-link to="/danh-sach-khoa-hoc" class="nav-link d-flex align-items-center">
+							<i class="fa-solid fa-warehouse me-2"></i>
+							<span>Khóa học của tôi</span>
+						</router-link>
+					</li>
+				</ul>
 			</div>
-			<div>
-				<h4 class="logo-text">Ney</h4>
-			</div>
-			<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
-			</div>
-		</div>
-		<nav class="navbar navbar-expand-xl w-100">
-			<ul class="navbar-nav justify-content-start flex-grow-1 gap-1">
-				<li class="nav-item">
-					<router-link to="/">
-						<a class="nav-link" href="/">
-							<div class="parent-icon"><i class='bx bx-home-circle'></i>
-							</div>
-							<div class="menu-title">Home</div>
-						</a>
-					</router-link>
-				</li>
-				<li class="nav-item">
-					<router-link to="/bai-viet">
-						<a class="nav-link" href="/bai-viet">
-							<div class="parent-icon"><i class="fa-solid fa-newspaper"></i>
-							</div>
-							<div class="menu-title">Bài Viết</div>
-						</a>
-					</router-link>
-				</li>
-				<li class="nav-item">
-					<router-link to="/trac-nghiem">
-						<a class="nav-link" href="/trac-nghiem">
-							<div class="parent-icon"><i class="fa-solid fa-list-check"></i>
-							</div>
-							<div class="menu-title">Trắc Nghiệm</div>
-						</a>
-					</router-link>
-				</li>
-				<!-- <li class="nav-item">
-					<router-link to="/danh-sach-khoa-hoc">
-						<a class="nav-link" href="/danh-sach-khoa-hoc">
-							<div class="parent-icon"><i class="fa-solid fa-warehouse"></i>
-							</div>
-							<div class="menu-title">Danh Sách Khóa Học</div>
-						</a>
-					</router-link>
-				</li> -->
-			</ul>
 		</nav>
 	</div>
 </template>

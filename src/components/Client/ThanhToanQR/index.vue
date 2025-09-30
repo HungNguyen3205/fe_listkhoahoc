@@ -41,6 +41,22 @@ export default {
             this.isLoading = false;
         }, 2000); // giả lập load
     },
+
+// cachs 2 
+data() {
+        return {
+            list: [],
+        };
+    },
+    mounted() {
+        axios.get('/api/data').then(response => {
+            this.list = response.data;
+        });
+    },
+};
+
+
+
     methods: {
         muaKhoaHoc() {
             axios
