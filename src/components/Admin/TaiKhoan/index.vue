@@ -10,7 +10,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="tab-icon"><i class="fa-solid fa-user font-18 me-1"></i>
                                     </div>
-                                    <div class="tab-title">Profile</div>
+                                    <div class="tab-title">Trang cá nhân</div>
                                 </div>
                             </a>
                         </li>

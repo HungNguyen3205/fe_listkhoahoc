@@ -53,7 +53,13 @@ export default {
             return date.toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
         },
         formatVND(number) {
-            return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number);
+        const locale = this.$i18n.locale === 'en' ? 'en-US' : 'vi-VN';
+        const currency = this.$i18n.locale === 'en' ? 'USD' : 'VND';
+
+        return new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currency,
+        }).format(number);
         },
       //  loadDanhSachKhoaHoc() {
         //    axios

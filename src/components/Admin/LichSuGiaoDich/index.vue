@@ -72,9 +72,12 @@ export default {
   },
   methods: {
     formatVND(number) {
-      return new Intl.NumberFormat("vi-VI", {
+      const locale = this.$i18n.locale === 'en' ? 'en-US' : 'vi-VN';
+      const currency = this.$i18n.locale === 'en' ? 'USD' : 'VND';
+
+      return new Intl.NumberFormat(locale, {
         style: "currency",
-        currency: "VND",
+        currency: currency,
       }).format(number);
     },
     formatdate(thoi_gian) {

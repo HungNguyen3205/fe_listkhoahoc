@@ -22,7 +22,7 @@
                         <li>
                             <router-link to="/tai-khoan">
                                 <a class="dropdown-item" href="/tai-khoan"><i
-                                        class="bx bx-user"></i><span>Profile</span></a>
+                                        class="bx bx-user"></i><span>Trang cá nhân</span></a>
                             </router-link>
                         </li>
                         <li><a v-on:click="logout()" class="dropdown-item" href="javascript:;"><i

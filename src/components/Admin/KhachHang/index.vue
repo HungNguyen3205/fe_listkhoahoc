@@ -202,7 +202,13 @@ export default {
             return date.toLocaleString();
         },
         formatVND(number) {
-            return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number);
+        const locale = this.$i18n.locale === 'en' ? 'en-US' : 'vi-VN';
+        const currency = this.$i18n.locale === 'en' ? 'USD' : 'VND';
+
+        return new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currency,
+        }).format(number);
         },
         
         timKiem() {

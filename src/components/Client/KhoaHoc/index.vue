@@ -1,121 +1,92 @@
 <template>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>{{ chi_tiet_khoa_hoc.ten_khoa_hoc }}</h1>
-                    <span>{{ chi_tiet_khoa_hoc.mo_ta_ngan }}</span>
-                </div>
-                <hr class="mt-3 mb-3">
-                <div class="col-lg-12">
-                    <h4>Nội dung khóa học</h4>
-                    <b>10</b> chương - <b>20</b> bài học - Thời lượng <b>10 giờ 29 phút</b>
-                </div>
-                <div class="col-lg-12 mt-3">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    <h6>1. Giới thiệu</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample" style="">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 1. Giới thiệu khóa học</p>
-                                        <p>01:03</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 2. Cài đặt Dev - C++</p>
-                                        <p>02:31</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 3. Hướng dẫn sử dụng Dev - C++
-                                        </p>
-                                        <p>03:33</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h6>2.Biến và kiểu dữ liệu</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 1. Giới thiệu khóa học</p>
-                                        <p>01:03</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 2. Cài đặt Dev - C++</p>
-                                        <p>02:31</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 3. Hướng dẫn sử dụng Dev - C++
-                                        </p>
-                                        <p>03:33</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <h6>3. Cấu trúc điều khiển và vòng lặp</h6>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 1. Giới thiệu khóa học</p>
-                                        <p>01:03</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 2. Cài đặt Dev - C++</p>
-                                        <p>02:31</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p><i class="fa-solid fa-circle-play me-2"></i> 3. Hướng dẫn sử dụng Dev - C++
-                                        </p>
-                                        <p>03:33</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <!-- LEFT -->
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>{{ chi_tiet_khoa_hoc.ten_khoa_hoc }}</h1>
+          <span>{{ chi_tiet_khoa_hoc.mo_ta_ngan }}</span>
         </div>
-        <div class="col-lg-6">
-            <iframe width="100%" height="515" style="border-radius: 20px;"
-                src="https://www.youtube.com/embed/Da1tpV9TMU0?si=gdWaKQGW9qqjySC2" frameborder="0"
-                allowfullscreen></iframe>
-            <h4 v-if="chi_tiet_khoa_hoc.gia_goc == 0" class="text-danger mt-2 text-center">Miễn phí</h4>
-            <h4 v-else class="text-danger mt-2 text-center">{{ formatVND(chi_tiet_khoa_hoc.gia_ban) }}</h4>
-            <div class="text-center">
-                <router-link :to="`/thanh-toan/${$route.params.id_khoa_hoc}`"
-                    class="btn btn-primary px-5 radius-30 mt-2">
-                    ĐĂNG KÝ HỌC
-                </router-link>
-            </div>
-            <div class="d-flex justify-content-between mt-3">
-                <p><i class="fa-solid fa-gauge-high"></i> Trình độ cơ bản</p>
-                <p><i class="fa-solid fa-film"></i> Tổng số 20 bài học</p>
-                <p><i class="fa-solid fa-clock"></i> Thời lượng 10 giờ 29 phút</p>
-                <p><i class="fa-solid fa-battery-full"></i> Học mọi lúc, mọi nơi</p>
-            </div>
+
+        <hr class="mt-3 mb-3" />
+
+        <div class="col-lg-12">
+          <h4>{{ $t("course_content") }}</h4>
+          <b>10</b> {{ $t("chapters") }} - <b>20</b> {{ $t("lessons") }} -
+          {{ $t("duration") }} <b>10h 29p</b>
         </div>
+
+        <!-- ACCORDION -->
+        <div class="col-lg-12 mt-3">
+          <div class="accordion" id="accordionExample">
+            
+            <!-- Ví dụ Chương 1 -->
+            <div class="d-flex justify-content-between align-items-center">
+  <p>
+    <i class="fa-solid fa-circle-play me-2"></i>
+    1. {{ $t("intro_course") }}
+  </p>
+  <p>01:03</p>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+  <p>
+    <i class="fa-solid fa-circle-play me-2"></i>
+    2. {{ $t("install_dev_cpp") }}
+  </p>
+  <p>02:31</p>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+  <p>
+    <i class="fa-solid fa-circle-play me-2"></i>
+    3. {{ $t("guide_dev_cpp") }}
+  </p>
+  <p>03:33</p>
+</div>
+
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- RIGHT -->
+    <div class="col-lg-6">
+      <iframe
+        width="100%"
+        height="515"
+        style="border-radius: 20px"
+        src="https://www.youtube.com/embed/Da1tpV9TMU0?si=gdWaKQGW9qqjySC2"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+
+      <h4 v-if="chi_tiet_khoa_hoc.gia_goc == 0" class="text-danger mt-2 text-center">
+        {{ $t("free") }}
+      </h4>
+      <h4 v-else class="text-danger mt-2 text-center">
+        {{ formatVND(chi_tiet_khoa_hoc.gia_ban) }}
+      </h4>
+
+      <div class="text-center">
+        <router-link
+          :to="`/thanh-toan/${$route.params.id_khoa_hoc}`"
+          class="btn btn-primary px-5 radius-30 mt-2"
+        >
+          {{ $t("register_course") }}
+        </router-link>
+      </div>
+
+      <div class="d-flex justify-content-between mt-3">
+        <p><i class="fa-solid fa-gauge-high"></i> {{ $t("level_basic") }}</p>
+        <p><i class="fa-solid fa-film"></i> {{ $t("total_lessons", { num: 20 }) }}</p>
+        <p><i class="fa-solid fa-clock"></i> {{ $t("total_time", { time: "10 giờ 29 phút" }) }}</p>
+        <p><i class="fa-solid fa-battery-full"></i> {{ $t("study_anywhere") }}</p>
+      </div>
+    </div>
+  </div>
 </template>
+
 <script>
 import axios from 'axios';
 export default {
@@ -159,7 +130,13 @@ export default {
         //         })
         // },
         formatVND(number) {
-            return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number,)
+        const locale = this.$i18n.locale === 'en' ? 'en-US' : 'vi-VN';
+        const currency = this.$i18n.locale === 'en' ? 'USD' : 'VND';
+
+        return new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currency,
+        }).format(number);
         },
         loadChiTietKhoaHoc() {
             axios
